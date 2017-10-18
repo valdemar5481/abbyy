@@ -18,6 +18,11 @@ module Abbyy
       RestClient.post("#{url}/processBusinessCard", options.merge(:upload => { :file => File.new(image_path, 'r') }))
     end
 
+    # http://ocrsdk.com/documentation/apireference/processReceipt/
+    def process_receipt(image_path, options = {})
+      RestClient.post("#{url}/processReceipt", options.merge(:upload => { :file => File.new(image_path, 'r') }))
+    end
+
     # http://ocrsdk.com/documentation/apireference/submitImage/
     def submit_image(image_path, options = {})
       RestClient.post("#{url}/submitImage", options.merge(:upload => { :file => File.new(image_path, 'r') }))
